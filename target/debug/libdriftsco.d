@@ -1,0 +1,1 @@
+/Users/64008962/rust/talon/driftsco/target/debug/libdriftsco.rlib: /Users/64008962/rust/talon/driftsco/src/lib.rs /Users/64008962/rust/talon/driftsco/src/subsystems/drivetrain.rs /Users/64008962/rust/talon/driftsco/src/subsystems/mod.rs
