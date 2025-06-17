@@ -1,5 +1,5 @@
-use frcrs::ctre::{CanCoder, Talon};
-use crate::constants::robotmap::drivetrain;
+use frcrs::ctre::{CanCoder, ControlMode, Talon};
+use crate::constants::{robotmap::drivetrain, general};
 
 //rwd with swerve modules on front for turning
 pub struct Drivetrain {
@@ -18,7 +18,7 @@ pub struct Drivetrain {
 }
 
 impl Drivetrain {
-    fn new() -> Self {
+    pub fn new() -> Self {
         let sr_drive = Talon::new(drivetrain::SR_DRIVE_ID, None);
         let sr_turn = Talon::new(drivetrain::SR_TURN_ID, None);
         let sr_encoder = CanCoder::new(drivetrain::SR_ENCODER_ID, None);
@@ -44,5 +44,13 @@ impl Drivetrain {
         }
     }
 
-    pub fn control_drivetrain{}
+    pub fn forward(&self, percent: f64) {
+        self.tl_drive.set(ControlMode::Percent, percent);
+        self.tr_drive.set(ControlMode::Percent, percent);
+    }
+
+    pub fn turn(&self, position: f64) {
+        self.sl_turn.set(ControlMode::Position, position * general::SWERVE_TURN_GEAR_RATIO);
+        self.sr_turn.set(ControlMode::Position, position * general::SWERVE_TURN_GEAR_RATIO);
+    }
 }
