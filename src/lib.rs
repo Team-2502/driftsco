@@ -17,4 +17,11 @@ impl DriftingFerris {
         }
     }
 
+    pub fn control_robot(&self) {
+        let forward_amount = self.inputs.pedal.get_y();
+        let turn_amount = self.inputs.wheel.get_x();
+
+        self.drivetrain.forward(forward_amount);
+        self.drivetrain.turn(turn_amount);
+    }
 }

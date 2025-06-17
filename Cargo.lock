@@ -170,6 +170,7 @@ name = "driftsco"
 version = "0.1.0"
 dependencies = [
  "frcrs",
+ "tokio",
 ]
 
 [[package]]

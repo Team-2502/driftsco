@@ -2,8 +2,8 @@ use frcrs::input::Joystick;
 use crate::constants::inputmap;
 
 pub struct Inputs {
-    wheel: Joystick,
-    pedal: Joystick,
+    pub wheel: Joystick,
+    pub pedal: Joystick,
 }
 
 impl Inputs {
@@ -13,6 +13,4 @@ impl Inputs {
             pedal: Joystick::new(inputmap::PEDAL_ID)
         }
     }
-
-
 }
